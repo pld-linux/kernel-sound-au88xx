@@ -6,7 +6,7 @@
 %define		_rel 6
 
 Summary:	Aureal Vortex Linux Driver
-Summary(pl):	Sterowniki dla Linuxa dla kart d德i瘯owych opartych na Aureal Vortex
+Summary(pl):	Sterowniki dla Linuksa dla kart d德i瘯owych opartych na Aureal Vortex
 Name:		kernel-sound-%{_orig_name}
 Version:	1.1.2
 Release:	%{_rel}@%{_kernel_ver_str}
@@ -29,7 +29,7 @@ Sterowniki do kart d德i瘯owych opartych na Aureal Vortex.
 
 %package -n kernel-smp-sound-%{_orig_name}
 Summary:	Aureal Vortex Linux SMP Driver
-Summary(pl):	Sterownik dla Linuxa SMP dla kart d德i瘯owych opartych na Aureal Vortex
+Summary(pl):	Sterownik dla Linuksa SMP dla kart d德i瘯owych opartych na Aureal Vortex
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Prereq:		/sbin/depmod
