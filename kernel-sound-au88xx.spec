@@ -12,6 +12,7 @@ Version:	1.1.2
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
+Url:		http://sourceforge.net/projects/aureal/
 Source0:	http://prdownloads.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
 Patch0:		%{_orig_name}-Makefile.patch
 Patch1:		%{name}-types.patch
