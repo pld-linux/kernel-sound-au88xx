@@ -37,7 +37,7 @@ Sterowniki do kart d¼wiêkowych opartych na Aureal Vortex.
 Summary:        Aureal Vortex Linux SMP Driver
 Summary(pl):    Sterownik dla Linuxa SMP dla kart d¼wiêkowych opartych na Aureal Vortex
 Release:        %{_rel}@%{_kernel_ver_str}
-%{!?_without_dist_kernel:Conflicts:     kernel < %{_kernel-ver}, kernel > %{_lernel_ver}}
+%{!?_without_dist_kernel:Conflicts:     kernel < %{_kernel_ver}, kernel > %{_kernel_ver}}
 %{!?_without_dist_kernel:Conflicts:     kernel-up}
 Obsoletes: 	kernel-sound-%{_orig_name}
 Obsoletes:      au88xx
