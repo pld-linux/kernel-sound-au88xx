@@ -1,4 +1,3 @@
-
 # conditional build
 # _without_dist_kernel          without distribution kernel
 
@@ -8,7 +7,7 @@ Summary:	Aureal Vortex Linux Driver
 Summary(pl):	Sterowniki dla Linuksa dla kart d¼wiêkowych opartych na Aureal Vortex
 Name:		kernel-sound-%{_orig_name}
 Version:	1.1.2
-%define	_rel	10
+%define	_rel	11
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
