@@ -2,10 +2,10 @@
 # conditional build
 # _without_dist_kernel          without distribution kernel
 
-%define		__kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
-%define		__kernel_rel	%(rpm -qf %{_kernelsrcdir}/include/linux/version.h --queryformat "%{RELEASE}" | grep -v "is not")
-%define		_kernel_ver	%(echo %{__kernel_ver}%{!?_without_dist_kernel:-%{__kernel_rel}})
-%define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
+#%define		__kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
+#%define		__kernel_rel	%(rpm -qf %{_kernelsrcdir}/include/linux/version.h --queryformat "%{RELEASE}" | grep -v "is not")
+#%define		_kernel_ver	%(echo %{__kernel_ver}%{!?_without_dist_kernel:-%{__kernel_rel}})
+#%define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
 %define		_orig_name	au88xx
 %define		_rel 5
 
@@ -23,7 +23,6 @@ Prereq:		/sbin/depmod
 %{!?_without_dist_kernel:%requires_releq_kernel_up}
 Provides:	au88xx
 Obsoletes:	au88xx
-Obsoletes:	kernel-smp-sound-%{_orig_name}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,7 +40,6 @@ Prereq:		/sbin/depmod
 %{!?_without_dist_kernel:%requires_releq_kernel_smp}
 Provides:	au88xx
 Obsoletes:	au88xx
-Obsoletes:	kernel-sound-%{_orig_name}
 
 %description -n kernel-smp-sound-%{_orig_name}
 Aureal Vortex Linux SMP Driver.
