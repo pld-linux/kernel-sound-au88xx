@@ -12,13 +12,13 @@ Version:	1.1.2
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
-Url:		http://sourceforge.net/projects/aureal/
-Source0:	http://prdownloads.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
+Source0:	http://dl.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
 Patch0:		%{_orig_name}-Makefile.patch
 Patch1:		%{name}-types.patch
+URL:		http://sourceforge.net/projects/aureal/
 %{!?_without_dist_kernel:BuildRequires:         kernel-headers }
-Prereq:		/sbin/depmod
 %{!?_without_dist_kernel:%requires_releq_kernel_up}
+Requires(post,postun):	/sbin/depmod
 Provides:	au88xx
 Obsoletes:	au88xx
 ExclusiveArch:	%{ix86}
@@ -35,8 +35,8 @@ Summary:	Aureal Vortex Linux SMP Driver
 Summary(pl):	Sterownik dla Linuksa SMP dla kart d¼wiêkowych opartych na Aureal Vortex
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
-Prereq:		/sbin/depmod
 %{!?_without_dist_kernel:%requires_releq_kernel_smp}
+Requires(post,postun):	/sbin/depmod
 Provides:	au88xx
 Obsoletes:	au88xx
 
