@@ -5,7 +5,7 @@
 %define		_kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
 %define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
 %define		_orig_name	au88xx
-%define		_rel 3
+%define		_rel 4
 
 Summary:	Aureal Vortex Linux Driver
 Summary(pl):	Sterowniki dla Linuxa dla kart d德i瘯owych opartych na Aureal Vortex
@@ -17,11 +17,11 @@ Group:		Base/Kernel
 Source0:	http://prdownloads.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
 Patch0:		%{_orig_name}-Makefile.patch
 %{!?_without_dist_kernel:BuildRequires:         kernel-headers }
-Obsoletes:	kernel-smp-sound-%{_orig_name}
-Obsoletes:	au88xx
-Provides:	au88xx
 Prereq:		/sbin/depmod
-%{!?_without_dist_kernel:Requires:	kernel-up = %{_kernel_ver}}
+%{!?_without_dist_kernel:%requires_releq_kernel_up}
+Provides:	au88xx
+Obsoletes:	au88xx
+Obsoletes:	kernel-smp-sound-%{_orig_name}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,11 +34,12 @@ Sterowniki do kart d德i瘯owych opartych na Aureal Vortex.
 Summary:	Aureal Vortex Linux SMP Driver
 Summary(pl):	Sterownik dla Linuxa SMP dla kart d德i瘯owych opartych na Aureal Vortex
 Release:	%{_rel}@%{_kernel_ver_str}
-%{!?_without_dist_kernel:Requires:     kernel-smp = %{_kernel_ver}}
-Obsoletes:	kernel-sound-%{_orig_name}
-Obsoletes:	au88xx
-Provides:	au88xx
 Group:		Base/Kernel
+Prereq:		/sbin/depmod
+%{!?_without_dist_kernel:%requires_releq_kernel_smp}
+Provides:	au88xx
+Obsoletes:	au88xx
+Obsoletes:	kernel-sound-%{_orig_name}
 
 %description -n kernel-smp-sound-%{_orig_name}
 Aureal Vortex Linux SMP Driver.
@@ -53,28 +54,23 @@ Sterowniki SMP do kart d德i瘯owych opartych na Aureal Vortex.
 %build
 #8810
 %{__make} CFLAGS="-D__KERNEL__ -D__SMP__ -D__KERNEL_SMP=1 -DMODULE -DAU8810 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8810 au8810.o
-mv au8810.o au8810-smp.o
+mv -f au8810.o au8810-smp.o
 %{__make} clean
 %{__make} CFLAGS="-D__KERNEL__ -DMODULE -DAU8810 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8810 au8810.o
 %{__make} clean
 
 #8820
 %{__make} CFLAGS="-D__KERNEL__ -D__SMP__ -D__KERNEL_SMP=1 -DMODULE -DAU8820 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8820 au8820.o
-mv au8820.o au8820-smp.o
+mv -f au8820.o au8820-smp.o
 %{__make} clean
 %{__make} CFLAGS="-D__KERNEL__ -DMODULE -DAU8820 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8820 au8820.o
 %{__make} clean
 
 #8830
 %{__make} CFLAGS="-D__KERNEL__ -D__SMP__ -D__KERNEL_SMP=1 -DMODULE -DAU8830 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8830 au8830.o
-mv au8830.o au8830-smp.o
+mv -f au8830.o au8830-smp.o
 %{__make} clean
 %{__make} CFLAGS="-D__KERNEL__ -DMODULE -DAU8830 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8830 au8830.o
-
-#rm -f %{_orig_name}.o
-#kgcc -o %{_orig_name}.o -c %{rpmcflags}  -c -DMODULE -D__KERNEL__ -O2 -DSMP=1 -D__SMP__ -DCONFIG_X86_LOCAL_APIC -Wall -Wstrict-prototypes -I%{_kernelsrcdir}/include %{_orig_name}.c
-#mv %{_orig_name}.o %{_orig_name}-smp.o
-#kgcc -o %{_orig_name}.o -c %{rpmcflags}  -c -DMODULE -D__KERNEL__ -O2 -Wall -Wstrict-prototypes -I%{_kernelsrcdir}/include %{_orig_name}.c
 
 %install
 rm -rf $RPM_BUILD_ROOT
