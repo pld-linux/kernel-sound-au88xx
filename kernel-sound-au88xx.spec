@@ -14,12 +14,25 @@ Version:	1.1.2
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
+Group(cs):	Základ/Jádro
+Group(da):	Basal/Kerne
 Group(de):	Grundsätzlich/Kern
+Group(es):	Base/Núcleo
+Group(fr):	Base/Noyau
+Group(is):	Grunnforrit/Kjarninn
+Group(it):	Base/Kernel
+Group(ja):	¥Ù¡¼¥¹/¥«¡¼¥Í¥ë
+Group(no):	Basis/Kjerne
 Group(pl):	Podstawowe/J±dro
+Group(pt):	Base/Núcleo
+Group(ru):	âÁÚÁ/ñÄÒÏ
+Group(sl):	Osnova/Jedro
+Group(sv):	Bas/Kärna
+Group(uk):	âÁÚÁ/ñÄÒÏ
 Source0:	http://prdownloads.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
 Patch0:		%{_orig_name}-Makefile.patch
 %{!?_without_dist_kernel:BuildRequires:         kernel-headers }
-Obsoletes: 	kernel-smp-sound-%{_orig_name}
+Obsoletes:	kernel-smp-sound-%{_orig_name}
 Obsoletes:	au88xx
 Provides:	au88xx
 Prereq:		/sbin/depmod
@@ -34,17 +47,30 @@ Aureal Vortex Linux Driver.
 Sterowniki do kart d¼wiêkowych opartych na Aureal Vortex.
 
 %package -n kernel-smp-sound-%{_orig_name}
-Summary:        Aureal Vortex Linux SMP Driver
-Summary(pl):    Sterownik dla Linuxa SMP dla kart d¼wiêkowych opartych na Aureal Vortex
-Release:        %{_rel}@%{_kernel_ver_str}
+Summary:	Aureal Vortex Linux SMP Driver
+Summary(pl):	Sterownik dla Linuxa SMP dla kart d¼wiêkowych opartych na Aureal Vortex
+Release:	%{_rel}@%{_kernel_ver_str}
 %{!?_without_dist_kernel:Conflicts:     kernel < %{_kernel_ver}, kernel > %{_kernel_ver}}
 %{!?_without_dist_kernel:Conflicts:     kernel-up}
-Obsoletes: 	kernel-sound-%{_orig_name}
-Obsoletes:      au88xx
-Provides:       au88xx
+Obsoletes:	kernel-sound-%{_orig_name}
+Obsoletes:	au88xx
+Provides:	au88xx
 Group:		Base/Kernel
+Group(cs):	Základ/Jádro
+Group(da):	Basal/Kerne
 Group(de):	Grundsätzlich/Kern
+Group(es):	Base/Núcleo
+Group(fr):	Base/Noyau
+Group(is):	Grunnforrit/Kjarninn
+Group(it):	Base/Kernel
+Group(ja):	¥Ù¡¼¥¹/¥«¡¼¥Í¥ë
+Group(no):	Basis/Kjerne
 Group(pl):	Podstawowe/J±dro
+Group(pt):	Base/Núcleo
+Group(ru):	âÁÚÁ/ñÄÒÏ
+Group(sl):	Osnova/Jedro
+Group(sv):	Bas/Kärna
+Group(uk):	âÁÚÁ/ñÄÒÏ
 
 %description -n kernel-smp-sound-%{_orig_name}
 Aureal Vortex Linux SMP Driver.
@@ -60,21 +86,21 @@ Sterowniki SMP do kart d¼wiêkowych opartych na Aureal Vortex.
 #8810
 %{__make} CFLAGS="-D__KERNEL__ -D__SMP__ -D__KERNEL_SMP=1 -DMODULE -DAU8810 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8810 au8810.o
 mv au8810.o au8810-smp.o
-make clean
+%{__make} clean
 %{__make} CFLAGS="-D__KERNEL__ -DMODULE -DAU8810 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8810 au8810.o
-make clean
+%{__make} clean
 
 #8820
 %{__make} CFLAGS="-D__KERNEL__ -D__SMP__ -D__KERNEL_SMP=1 -DMODULE -DAU8820 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8820 au8820.o
 mv au8820.o au8820-smp.o
-make clean
+%{__make} clean
 %{__make} CFLAGS="-D__KERNEL__ -DMODULE -DAU8820 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8820 au8820.o
-make clean
+%{__make} clean
 
 #8830
 %{__make} CFLAGS="-D__KERNEL__ -D__SMP__ -D__KERNEL_SMP=1 -DMODULE -DAU8830 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8830 au8830.o
 mv au8830.o au8830-smp.o
-make clean
+%{__make} clean
 %{__make} CFLAGS="-D__KERNEL__ -DMODULE -DAU8830 %{rpmcflags} -fomit-frame-pointer -pipe -Wall -I%{_kernelsrcdir}/include" AUCHIP=AU8830 au8830.o
 
 #rm -f %{_orig_name}.o
