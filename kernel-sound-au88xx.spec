@@ -17,7 +17,7 @@ Source0:	http://dl.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
 Patch0:		%{_orig_name}-Makefile.patch
 Patch1:		%{name}-types.patch
 URL:		http://sourceforge.net/projects/aureal/
-%{!?_without_dist_kernel:BuildRequires:         kernel-headers }
+%{!?_without_dist_kernel:BuildRequires:	kernel-headers }
 BuildRequires:	rpmbuild(macros) >= 1.118
 %{!?_without_dist_kernel:%requires_releq_kernel_up}
 Requires(post,postun):	/sbin/depmod
@@ -88,7 +88,7 @@ install au8820.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/au8820.o
 install au8830-smp.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/misc/au8830.o
 install au8830.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/au8830.o
 
-%clean 
+%clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
