@@ -2,10 +2,6 @@
 # conditional build
 # _without_dist_kernel          without distribution kernel
 
-#%define		__kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
-#%define		__kernel_rel	%(rpm -qf %{_kernelsrcdir}/include/linux/version.h --queryformat "%{RELEASE}" | grep -v "is not")
-#%define		_kernel_ver	%(echo %{__kernel_ver}%{!?_without_dist_kernel:-%{__kernel_rel}})
-#%define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
 %define		_orig_name	au88xx
 %define		_rel 5
 
