@@ -2,10 +2,12 @@
 # conditional build
 # _without_dist_kernel          without distribution kernel
 
-%define		_kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
+%define		__kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
+%define		__kernel_rel	%(rpm -qf %{_kernelsrcdir}/include/linux/version.h --queryformat "%{RELEASE}")
+%define		_kernel_ver	%(echo %{__kernel_ver}-%{__kernel_rel})
 %define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
 %define		_orig_name	au88xx
-%define		_rel 4
+%define		_rel 5
 
 Summary:	Aureal Vortex Linux Driver
 Summary(pl):	Sterowniki dla Linuxa dla kart d¼wiêkowych opartych na Aureal Vortex
