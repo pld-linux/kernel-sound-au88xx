@@ -14,21 +14,6 @@ Version:	1.1.2
 Release:	%{_rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
-Group(cs):	Základ/Jádro
-Group(da):	Basal/Kerne
-Group(de):	Grundsätzlich/Kern
-Group(es):	Base/Núcleo
-Group(fr):	Base/Noyau
-Group(is):	Grunnforrit/Kjarninn
-Group(it):	Base/Kernel
-Group(ja):	¥Ù¡¼¥¹/¥«¡¼¥Í¥ë
-Group(no):	Basis/Kjerne
-Group(pl):	Podstawowe/J±dro
-Group(pt):	Base/Núcleo
-Group(ru):	âÁÚÁ/ñÄÒÏ
-Group(sl):	Osnova/Jedro
-Group(sv):	Bas/Kärna
-Group(uk):	âÁÚÁ/ñÄÒÏ
 Source0:	http://prdownloads.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
 Patch0:		%{_orig_name}-Makefile.patch
 %{!?_without_dist_kernel:BuildRequires:         kernel-headers }
@@ -56,21 +41,6 @@ Obsoletes:	kernel-sound-%{_orig_name}
 Obsoletes:	au88xx
 Provides:	au88xx
 Group:		Base/Kernel
-Group(cs):	Základ/Jádro
-Group(da):	Basal/Kerne
-Group(de):	Grundsätzlich/Kern
-Group(es):	Base/Núcleo
-Group(fr):	Base/Noyau
-Group(is):	Grunnforrit/Kjarninn
-Group(it):	Base/Kernel
-Group(ja):	¥Ù¡¼¥¹/¥«¡¼¥Í¥ë
-Group(no):	Basis/Kjerne
-Group(pl):	Podstawowe/J±dro
-Group(pt):	Base/Núcleo
-Group(ru):	âÁÚÁ/ñÄÒÏ
-Group(sl):	Osnova/Jedro
-Group(sv):	Bas/Kärna
-Group(uk):	âÁÚÁ/ñÄÒÏ
 
 %description -n kernel-smp-sound-%{_orig_name}
 Aureal Vortex Linux SMP Driver.
