@@ -3,7 +3,7 @@
 # _without_dist_kernel          without distribution kernel
 
 %define		_orig_name	au88xx
-%define		_rel 5
+%define		_rel 6
 
 Summary:	Aureal Vortex Linux Driver
 Summary(pl):	Sterowniki dla Linuxa dla kart d¼wiêkowych opartych na Aureal Vortex
