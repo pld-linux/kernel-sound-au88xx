@@ -1,6 +1,7 @@
-# conditional build
+#
+# Conditional build:
 # _without_dist_kernel          without distribution kernel
-
+#
 %define		_orig_name	au88xx
 
 Summary:	Aureal Vortex Linux Driver
@@ -89,16 +90,16 @@ install au8830.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/au8830.o
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/sbin/depmod -a
+/sbin/depmod -a -F /boot/System.map-%{_kernel_ver} %{_kernel_ver}
 
 %postun
-/sbin/depmod -a
+/sbin/depmod -a -F /boot/System.map-%{_kernel_ver} %{_kernel_ver}
 
 %post -n kernel-smp-sound-%{_orig_name}
-/sbin/depmod -a
+/sbin/depmod -a -F /boot/System.map-%{_kernel_ver}smp %{_kernel_ver}smp
 
 %postun -n kernel-smp-sound-%{_orig_name}
-/sbin/depmod -a
+/sbin/depmod -a -F /boot/System.map-%{_kernel_ver}smp %{_kernel_ver}smp
 
 %files
 %defattr(644,root,root,755)
