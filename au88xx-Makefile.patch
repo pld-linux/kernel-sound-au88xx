@@ -1,0 +1,22 @@
+diff -ur aureal/Makefile aureal.new/Makefile
+--- aureal/Makefile	Sat Jan  6 11:13:50 2001
++++ aureal.new/Makefile	Sun Sep 30 15:06:33 2001
+@@ -78,7 +78,7 @@
+ OFILES = $(CFILES:.c=.o)
+ 
+ $(NAME).o: $(OFILES) $(ASP_OBJ)
+-	$(LD) -m elf_i386 -r $^ -o $@
++	$(LD) -m elf_i386 -r $^ -o $(NAME).o
+ 
+ compile: $(NAME).o
+ 
+@@ -108,7 +108,7 @@
+ rebuild: clean install
+ 
+ clean:
+-	rm -f $(NAME).o $(OFILES)
++	rm -f $(OFILES)
+ 
+ drebuild:
+ 	$(MAKE) rebuild VERBOSE=YES
+Only in aureal.new/: Makefile~
