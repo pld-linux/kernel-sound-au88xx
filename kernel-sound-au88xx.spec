@@ -106,5 +106,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n kernel-smp-sound-%{_orig_name}
 %defattr(644,root,root,755)
-%doc *.gz 
+%doc README ChangeLog
 /lib/modules/%{_kernel_ver}smp/misc/*
