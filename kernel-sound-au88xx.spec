@@ -5,7 +5,7 @@
 %define		_kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
 %define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
 %define		_orig_name	au88xx
-%define		_rel 1
+%define		_rel 2
 
 Summary:	Aureal Vortex Linux Driver
 Summary(pl):	Sterowniki dla Linuxa dla kart d¼wiêkowych opartych na Aureal Vortex
