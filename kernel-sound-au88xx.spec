@@ -9,7 +9,7 @@ Summary(pl):	Sterowniki dla Linuksa dla kart d¼wiêkowych opartych na Aureal Vort
 Name:		kernel-sound-%{_orig_name}
 Version:	1.1.2
 %define	_rel	7
-mRelease:	%{_rel}@%{_kernel_ver_str}
+Release:	%{_rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
 Source0:	http://prdownloads.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
