@@ -14,6 +14,7 @@ License:	GPL
 Group:		Base/Kernel
 Source0:	http://prdownloads.sourceforge.net/aureal/%{_orig_name}-%{version}.tar.bz2
 Patch0:		%{_orig_name}-Makefile.patch
+Patch1:		%{name}-types.patch
 %{!?_without_dist_kernel:BuildRequires:         kernel-headers }
 Prereq:		/sbin/depmod
 %{!?_without_dist_kernel:%requires_releq_kernel_up}
@@ -46,6 +47,7 @@ Sterowniki SMP do kart d¼wiêkowych opartych na Aureal Vortex.
 %prep
 %setup -q -n aureal
 %patch0 -p1
+%patch1 -p1
 
 %build
 #8810
@@ -82,8 +84,6 @@ install au8820.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/au8820.o
 install au8830-smp.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/misc/au8830.o
 install au8830.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/au8830.o
 
-gzip -9nf README ChangeLog
-
 %clean 
 rm -rf $RPM_BUILD_ROOT
 
@@ -101,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog
 /lib/modules/%{_kernel_ver}/misc/*
 
 %files -n kernel-smp-sound-%{_orig_name}
