@@ -5,7 +5,7 @@
 %define		_kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
 %define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
 %define		_orig_name	au88xx
-%define		_rel 2
+%define		_rel 3
 
 Summary:	Aureal Vortex Linux Driver
 Summary(pl):	Sterowniki dla Linuxa dla kart d¼wiêkowych opartych na Aureal Vortex
@@ -21,8 +21,7 @@ Obsoletes:	kernel-smp-sound-%{_orig_name}
 Obsoletes:	au88xx
 Provides:	au88xx
 Prereq:		/sbin/depmod
-%{!?_without_dist_kernel:Conflicts:	kernel < %{_kernel_ver}, kernel > %{_kernel_ver}}
-%{!?_without_dist_kernel:Conflicts:	kernel-smp}
+%{!?_without_dist_kernel:Requires:	kernel-up = %{_kernel_ver}}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,8 +34,7 @@ Sterowniki do kart d¼wiêkowych opartych na Aureal Vortex.
 Summary:	Aureal Vortex Linux SMP Driver
 Summary(pl):	Sterownik dla Linuxa SMP dla kart d¼wiêkowych opartych na Aureal Vortex
 Release:	%{_rel}@%{_kernel_ver_str}
-%{!?_without_dist_kernel:Conflicts:     kernel < %{_kernel_ver}, kernel > %{_kernel_ver}}
-%{!?_without_dist_kernel:Conflicts:     kernel-up}
+%{!?_without_dist_kernel:Requires:     kernel-smp = %{_kernel_ver}}
 Obsoletes:	kernel-sound-%{_orig_name}
 Obsoletes:	au88xx
 Provides:	au88xx
