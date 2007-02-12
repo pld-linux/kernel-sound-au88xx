@@ -5,7 +5,7 @@
 %define		_orig_name	au88xx
 
 Summary:	Aureal Vortex Linux Driver
-Summary(pl):	Sterowniki dla Linuksa dla kart d¼wiêkowych opartych na Aureal Vortex
+Summary(pl.UTF-8):   Sterowniki dla Linuksa dla kart dÅºwiÄ™kowych opartych na Aureal Vortex
 Name:		kernel-sound-%{_orig_name}
 Version:	1.1.2
 %define	_rel	16
@@ -29,12 +29,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Aureal Vortex Linux Driver.
 
-%description -l pl
-Sterowniki do kart d¼wiêkowych opartych na Aureal Vortex.
+%description -l pl.UTF-8
+Sterowniki do kart dÅºwiÄ™kowych opartych na Aureal Vortex.
 
 %package -n kernel-smp-sound-%{_orig_name}
 Summary:	Aureal Vortex Linux SMP Driver
-Summary(pl):	Sterownik dla Linuksa SMP dla kart d¼wiêkowych opartych na Aureal Vortex
+Summary(pl.UTF-8):   Sterownik dla Linuksa SMP dla kart dÅºwiÄ™kowych opartych na Aureal Vortex
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 %{?with_dist_kernel:%requires_releq_kernel_smp}
@@ -45,8 +45,8 @@ Obsoletes:	au88xx
 %description -n kernel-smp-sound-%{_orig_name}
 Aureal Vortex Linux SMP Driver.
 
-%description -n kernel-smp-sound-%{_orig_name} -l pl
-Sterowniki SMP do kart d¼wiêkowych opartych na Aureal Vortex.
+%description -n kernel-smp-sound-%{_orig_name} -l pl.UTF-8
+Sterowniki SMP do kart dÅºwiÄ™kowych opartych na Aureal Vortex.
 
 %prep
 %setup -q -n aureal
