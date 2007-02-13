@@ -1,0 +1,2 @@
+- new kernel module naming scheme
+- s/-/_/g in @... release suffix
