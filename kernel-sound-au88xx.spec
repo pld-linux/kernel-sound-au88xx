@@ -50,8 +50,8 @@ Sterowniki SMP do kart dźwiękowych opartych na Aureal Vortex.
 
 %prep
 %setup -q -n aureal
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 #8810
